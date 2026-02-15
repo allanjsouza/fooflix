@@ -1,19 +1,18 @@
-const movies = [
-  { name: "John Wick", genre: "Action", year: "2019" },
-  { name: "John Wick", genre: "Action", year: "2019" },
-  { name: "John Wick", genre: "Action", year: "2019" },
-];
+const mongoModel = require("../model/model");
 
 const resolvers = {
   listMovies: () => {
-    return movies;
+    return mongoModel.find({});
   },
   addMovie: (args) => {
-    return {
+    let newMovieData = new mongoModel({
       name: args.name,
       genre: args.genre,
       year: args.year,
-    };
+    });
+    newMovieData.save();
+
+    return newMovieData;
   },
 };
 
