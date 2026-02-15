@@ -18,6 +18,8 @@ const Movies = () => {
 
   if (loading) return <p className="loading">Loading Movies...</p>;
   if (error) return <p className="error">Error: {error.message}</p>;
+  if (data.listMovies.length === 0)
+    return <p className="no-movies">Please add some movies</p>;
 
   return (
     <div className="movies">
