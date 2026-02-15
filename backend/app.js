@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -6,10 +8,10 @@ const movieResolvers = require("./resolvers/resolvers");
 const movieSchema = require("./schema/schema");
 const cors = require("cors");
 
+const PORT = process.env.PORT || 4000;
+
 mongoose
-  .connect(
-    "mongodb+srv://allanjsouza_db_user:rihNybD0301yeoZj@fooflix.zya9p3g.mongodb.net/?appName=fooflix",
-  )
+  .connect(process.env.DB_URI)
   .then(() => {
     console.log("MongoDB connected!");
   })
@@ -32,6 +34,6 @@ app.get("/hi", (req, res) => {
   res.send("Hello from the express server!");
 });
 
-app.listen("4000", () => {
-  console.log("Server on port 4000!");
+app.listen(PORT, () => {
+  console.log(`Server on port ${PORT}!`);
 });
