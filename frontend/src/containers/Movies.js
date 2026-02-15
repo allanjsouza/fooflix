@@ -21,9 +21,10 @@ const Movies = () => {
 
   return (
     <div className="movies">
-      {data.listMovies.map((movie) => {
+      {data.listMovies.map((movie, index) => {
         return (
           <Movie
+            key={index}
             movieName={movie.name}
             movieGenre={movie.genre}
             movieYear={movie.year}
