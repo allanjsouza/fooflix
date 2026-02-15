@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const { graphqlHTTP } = require("express-graphql");
 const movieResolvers = require("./resolvers/resolvers");
 const movieSchema = require("./schema/schema");
+const cors = require("cors");
 
 mongoose
   .connect(
@@ -15,6 +16,8 @@ mongoose
   .catch((err) => {
     console.error("Error: ", err);
   });
+
+app.use(cors());
 
 app.use(
   "/graphql",
