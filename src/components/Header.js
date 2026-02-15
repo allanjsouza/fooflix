@@ -1,12 +1,13 @@
 import React from "react";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Header = () => {
   return (
-    <div className="topnav">
+    <div className="topnav" id="header">
       <a href="/#">Fooflix</a>
-      <a href="/#" className="add-button">
+      <Link smooth to="#addMovie" className="add-button">
         Add Movie
-      </a>
+      </Link>
     </div>
   );
 };
