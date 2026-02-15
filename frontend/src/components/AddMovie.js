@@ -8,7 +8,7 @@ const AddMovie = () => {
         <input type="text" placeholder="Movie Name" required />
         <input type="text" placeholder="Movie Genre" required />
         <input type="text" placeholder="Movie Year" />
-        <buton>Add Movie</buton>
+        <button>Add Movie</button>
       </form>
       <div className="top">
         <Link smooth to="#header" className="top-button">
